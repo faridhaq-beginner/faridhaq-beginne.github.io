@@ -310,45 +310,167 @@ nav ul li a:hover {
     }
 }
 
-/* Tambahan untuk layar yang lebih kecil */
+/* Update media queries untuk tampilan mobile portrait */
 @media (max-width: 480px) {
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        padding-top: 60px;
+    }
+
     .hero-content {
-        padding: 0.8rem;
+        padding: 1rem;
+        margin: 0.5rem;
+        width: 90%;
     }
 
     .hero h1 {
         font-size: 1.2rem;
+        margin-bottom: 0.5rem;
     }
 
     .description {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        padding: 0;
+        margin: 0.5rem auto;
+        line-height: 1.4;
+    }
+
+    .description::before,
+    .description::after {
+        width: 30px;
+    }
+
+    .description::before {
+        left: -35px;
+    }
+
+    .description::after {
+        right: -35px;
+    }
+
+    .tagline {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        padding: 0.2rem 0.5rem;
     }
 
     .profile-img {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+        border-width: 2px;
     }
 
-    section {
-        padding: 1.5rem 0.6rem;
-        margin: 0.6rem;
+    /* Program Cards */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 0;
+    }
+
+    .program-card {
+        margin: 0.4rem;
+        height: auto;
     }
 
     .program-content {
-        padding: 0.8rem;
+        padding: 1rem;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .program-content i {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem;
     }
 
     .program-content h3 {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
     }
 
     .program-content p {
         font-size: 0.7rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.3;
     }
 
+    .program-tech {
+        gap: 0.3rem;
+        margin: 0.5rem 0;
+    }
+
+    .program-tech span {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .program-link {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem;
+        width: 80%;
+        justify-content: center;
+    }
+
+    /* Section Headings */
+    section {
+        padding: 2rem 0.5rem;
+        margin: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Skills Section */
+    .skills h3 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .skills ul {
+        gap: 0.8rem;
+    }
+
+    .skills li {
+        padding: 0.8rem;
+    }
+
+    .skills li i {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-title {
+        font-size: 0.8rem;
+        margin: 0.4rem 0;
+    }
+
+    .skill-desc {
+        font-size: 0.65rem;
+        line-height: 1.3;
+    }
+
+    /* Contact Section */
     .contact-info p {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         padding: 0.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .contact-info i {
+        font-size: 0.8rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 0.8rem;
+        font-size: 0.65rem;
     }
 }
 
@@ -363,12 +485,24 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     height: 100%;
+    text-align: center;
 }
 
 .program-tech {
-    margin: auto 0;
-    padding: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.program-link {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Hero Section */
