@@ -159,6 +159,216 @@ nav ul li a:hover {
     nav ul li a::after {
         display: none;
     }
+
+    /* Hero Section */
+    .hero {
+        min-height: 90vh;
+        padding-top: 60px;
+    }
+
+    .hero-content {
+        padding: 1rem;
+        margin: 0 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .description {
+        font-size: 0.8rem;
+        padding: 0;
+        margin: 0.5rem auto;
+        line-height: 1.5;
+    }
+
+    .tagline {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1rem;
+        border-width: 3px;
+    }
+
+    /* Section Headings */
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Sections */
+    section {
+        padding: 2rem 0.8rem;
+        margin: 0.8rem;
+    }
+
+    /* Skills Section */
+    .skills h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .skills ul {
+        gap: 1rem;
+    }
+
+    .skills li {
+        padding: 1rem;
+    }
+
+    .skills li i {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .skill-title {
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+    }
+
+    .skill-desc {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+
+    /* Program Cards */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .program-card {
+        margin: 0 0.5rem 1rem;
+    }
+
+    .program-content {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .program-content i {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.8rem;
+    }
+
+    .program-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+
+    .program-content p {
+        font-size: 0.75rem;
+        margin-bottom: 0.8rem;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .program-tech {
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .program-tech span {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .program-link {
+        font-size: 0.8rem;
+        padding: 0.3rem 1rem;
+    }
+
+    /* Contact Section */
+    .contact-info {
+        padding: 0 0.5rem;
+    }
+
+    .contact-info p {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+        margin: 0.6rem 0;
+    }
+
+    .contact-info i {
+        font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Tambahan untuk layar yang lebih kecil */
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0.8rem;
+    }
+
+    .hero h1 {
+        font-size: 1.2rem;
+    }
+
+    .description {
+        font-size: 0.75rem;
+    }
+
+    .profile-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    section {
+        padding: 1.5rem 0.6rem;
+        margin: 0.6rem;
+    }
+
+    .program-content {
+        padding: 0.8rem;
+    }
+
+    .program-content h3 {
+        font-size: 1rem;
+    }
+
+    .program-content p {
+        font-size: 0.7rem;
+    }
+
+    .contact-info p {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+}
+
+/* Perbaikan simetri program cards */
+.program-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.program-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.program-tech {
+    margin: auto 0;
+    padding: 0.5rem 0;
 }
 
 /* Hero Section */
@@ -628,144 +838,6 @@ footer {
 
 .description::after {
     right: -60px;
-}
-
-@media (max-width: 768px) {
-    .hero-content {
-        padding: 1.5rem;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .description {
-        font-size: 0.9rem;
-        padding: 0 0.5rem;
-        margin: 0.8rem auto;
-    }
-
-    .tagline {
-        font-size: 0.9rem;
-        letter-spacing: 2px;
-        padding: 0.3rem 0.8rem;
-    }
-
-    .profile-img {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 1.5rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-    }
-
-    section {
-        padding: 3rem 1rem;
-        margin: 1rem;
-    }
-
-    .skills h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .skills li {
-        padding: 1.5rem;
-    }
-
-    .skill-title {
-        font-size: 1.1rem;
-        margin: 0.8rem 0;
-    }
-
-    .skill-desc {
-        font-size: 0.85rem;
-    }
-
-    .skills li i {
-        font-size: 2rem;
-    }
-
-    .portfolio-grid {
-        gap: 1rem;
-        padding: 0.5rem;
-    }
-
-    .program-card {
-        margin-bottom: 1rem;
-    }
-
-    .program-content {
-        padding: 1.5rem;
-    }
-
-    .program-content h3 {
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .program-content p {
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-    }
-
-    .program-content i {
-        font-size: 2rem !important;
-        margin-bottom: 1rem;
-    }
-
-    .program-tech span {
-        font-size: 0.75rem;
-        padding: 0.2rem 0.8rem;
-    }
-
-    .program-link {
-        font-size: 0.9rem;
-        padding: 0.4rem 1.2rem;
-    }
-
-    .contact-info p {
-        font-size: 0.9rem;
-        padding: 0.8rem;
-        margin: 0.8rem 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-
-    .description {
-        font-size: 0.85rem;
-    }
-
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    section {
-        padding: 2rem 0.8rem;
-        margin: 0.8rem;
-    }
-
-    .skills li {
-        padding: 1.2rem;
-    }
-
-    .program-content {
-        padding: 1.2rem;
-    }
-
-    .contact-info p {
-        font-size: 0.85rem;
-        padding: 0.7rem;
-    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
