@@ -260,6 +260,26 @@
                     this.classList.add('active');
                 });
             });
+
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav ul');
+
+            // Toggle menu saat tombol diklik
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+
+            // Tutup menu saat link diklik
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                });
+            });
+
+            // Tutup menu saat scroll
+            window.addEventListener('scroll', () => {
+                nav.classList.remove('active');
+            });
         });
     </script>
 </body>
