@@ -222,6 +222,19 @@
         <p>&copy; 2024 Portfolio Saya. Hak Cipta Dilindungi.</p>
     </footer>
 
+    <div id="deviceWarning" class="modal">
+        <div class="modal-content">
+            <h3>⚠️ Peringatan Tampilan</h3>
+            <p>Untuk pengalaman terbaik dalam melihat portfolio ini:</p>
+            <ul>
+                <li>💻 Gunakan laptop/tablet untuk tampilan optimal</li>
+                <li>📱 Jika menggunakan HP, putar layar ke posisi horizontal</li>
+                <li>🔄 Pastikan auto-rotate pada HP Anda aktif</li>
+            </ul>
+            <button onclick="closeModal()">Saya Mengerti</button>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('nav ul li a');
@@ -280,6 +293,38 @@
             window.addEventListener('scroll', () => {
                 nav.classList.remove('active');
             });
+
+            // Fungsi untuk mengecek orientasi dan device
+            function checkDeviceAndOrientation() {
+                const modal = document.getElementById('deviceWarning');
+                
+                // Cek apakah menggunakan mobile
+                if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    if(window.innerHeight > window.innerWidth) {
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden'; // Mencegah scroll saat modal terbuka
+                    }
+                }
+            }
+
+            // Fungsi untuk menutup modal
+            window.closeModal = function() {
+                document.getElementById('deviceWarning').style.display = 'none';
+                document.body.style.overflow = ''; // Mengembalikan scroll
+                
+                // Simpan ke localStorage bahwa peringatan sudah ditampilkan
+                localStorage.setItem('warningShown', 'true');
+            }
+
+            // Cek apakah peringatan sudah pernah ditampilkan
+            if (!localStorage.getItem('warningShown')) {
+                // Jalankan pengecekan saat halaman dimuat
+                checkDeviceAndOrientation();
+
+                // Jalankan pengecekan saat orientasi berubah
+                window.addEventListener('orientationchange', checkDeviceAndOrientation);
+                window.addEventListener('resize', checkDeviceAndOrientation);
+            }
         });
     </script>
 </body>
