@@ -32,22 +32,26 @@ body {
 /* Glassmorphism Header */
 header {
     background: var(--accent-gradient);
-    border-bottom: var(--border-accent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: var(--shadow);
-    padding: 1rem 0;
+    padding: 1rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
 }
 
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
     gap: 2rem;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li a {
@@ -87,6 +91,53 @@ nav ul li a.active {
 
 nav ul li a:hover {
     color: #e0e0e0;
+}
+
+/* Tambahkan tombol menu untuk mobile */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--accent-gradient);
+        padding: 1rem 0;
+        gap: 1rem;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 0.8rem;
+    }
 }
 
 /* Hero Section */
@@ -480,31 +531,6 @@ footer {
     text-align: center;
     padding: 1.5rem;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    section {
-        margin: 1rem;
-        padding: 3rem 1rem;
-    }
-
-    .skills ul {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* Animations */
