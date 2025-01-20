@@ -217,6 +217,142 @@ Saya sedang belajar di perpustakaan
                 </div>
             </div>
         </div>
+
+        <div style="margin-top: 2rem;">
+            <h3 class="section-title">Perbandingan Program</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <!-- Program dengan cin -->
+                <div>
+                    <div class="element-card" style="margin-bottom: 1rem;">
+                        <div class="element-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <div class="element-title">Program dengan cin</div>
+                        <div class="element-desc">Input tanpa spasi</div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code>
+#include&lt;iostream&gt;
+using namespace std;
+ 
+int main() {
+    string aktivitas;
+    string tempat;
+    
+    cout<<"apa aktivitas anda \t: ";
+    cin>>aktivitas;
+    
+    cout<<"di mana anda "<<aktivitas<<"\t: ";
+    cin>>tempat;
+    
+    cout<<"Saya sedang "<<aktivitas<<" di "<<tempat;
+}
+                        </code></pre>
+                    </div>
+                    
+                    <div class="code-block" style="background: linear-gradient(145deg, #2d2d2d, #1a1a1a);">
+                        <p style="color: #63b3ed; margin: 0 0 0.5rem 0;">Output:</p>
+                        <pre><code>
+apa aktivitas anda     : belajar
+di mana anda belajar   : perpustakaan
+Saya sedang belajar di perpustakaan
+                        </code></pre>
+                    </div>
+                </div>
+
+                <!-- Program dengan getline -->
+                <div>
+                    <div class="element-card" style="margin-bottom: 1rem;">
+                        <div class="element-icon">
+                            <i class="fas fa-align-left"></i>
+                        </div>
+                        <div class="element-title">Program dengan getline</div>
+                        <div class="element-desc">Input dengan spasi</div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code>
+#include&lt;iostream&gt;
+using namespace std;
+ 
+int main() {
+    string aktivitas;
+    string tempat;
+    
+    cout<<"apa aktivitas anda \t: ";
+    getline(cin, aktivitas);
+    
+    cout<<"di mana anda "<<aktivitas<<"\t: ";
+    getline(cin, tempat);
+    
+    cout<<"Saya sedang "<<aktivitas<<" di "<<tempat;
+}
+                        </code></pre>
+                    </div>
+                    
+                    <div class="code-block" style="background: linear-gradient(145deg, #2d2d2d, #1a1a1a);">
+                        <p style="color: #63b3ed; margin: 0 0 0.5rem 0;">Output:</p>
+                        <pre><code>
+apa aktivitas anda     : bermain game online
+di mana anda bermain game online   : warnet pojok
+Saya sedang bermain game online di warnet pojok
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabel Perbandingan -->
+            <div class="element-card" style="margin-top: 2rem;">
+                <h3 class="section-title" style="margin-top: 0;">Perbedaan cin dan getline</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                    <thead>
+                        <tr style="background: #f0f7ff;">
+                            <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #4a90e2;">Aspek</th>
+                            <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #4a90e2;">cin</th>
+                            <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #4a90e2;">getline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border-bottom: 1px solid #e1e8ed;">Input dengan spasi</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #e1e8ed;">❌ Tidak bisa</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #e1e8ed;">✅ Bisa</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border-bottom: 1px solid #e1e8ed;">Pembacaan input</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #e1e8ed;">Berhenti saat bertemu spasi</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #e1e8ed;">Berhenti saat menekan Enter</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border-bottom: 1px solid #e1e8ed;">Penggunaan</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #e1e8ed;">Cocok untuk input data tunggal</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #e1e8ed;">Cocok untuk input kalimat</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Catatan Penting -->
+            <div style="margin-top: 2rem;">
+                <h3 class="section-title">Catatan Penting</h3>
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="element-desc">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• cin akan berhenti membaca input saat menemui spasi</li>
+                            <li style="margin-bottom: 0.5rem;">• getline akan membaca seluruh baris input termasuk spasi</li>
+                            <li style="margin-bottom: 0.5rem;">• Gunakan cin untuk input data tunggal seperti angka atau kata tunggal</li>
+                            <li style="margin-bottom: 0.5rem;">• Gunakan getline untuk input yang memungkinkan adanya spasi seperti nama lengkap atau alamat</li>
+                            <li>• Perhatikan bahwa setelah menggunakan cin, diperlukan cin.ignore() sebelum menggunakan getline</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
