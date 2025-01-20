@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Aktivitas - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .code-explanation {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .code-block {
+            background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .code-block code {
+            font-family: 'Fira Code', monospace;
+            line-height: 1.6;
+        }
+        
+        .element-list {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .element-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .element-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .element-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #4a90e2;
+            background: #f0f7ff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .element-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+        }
+        
+        .element-desc {
+            color: #636e72;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2d3436;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #4a90e2, #63b3ed);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Kembali ke Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="section-title">Program Aktivitas</h1>
+        
+        <div class="code-explanation">
+            <h2 class="section-title">Penjelasan Program</h2>
+            <p>Program ini menggunakan beberapa elemen dasar C++ untuk menerima input aktivitas dan lokasi dari pengguna:</p>
+            
+            <div class="element-list">
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-file-import"></i>
+                    </div>
+                    <div class="element-title">#include &lt;iostream&gt;</div>
+                    <div class="element-desc">Header untuk input/output stream, memungkinkan program melakukan operasi input dan output standar</div>
+                </div>
+
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <div class="element-title">#include &lt;string&gt;</div>
+                    <div class="element-desc">Header untuk menggunakan tipe data string, memungkinkan manipulasi teks dalam program</div>
+                </div>
+
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <div class="element-title">using namespace std</div>
+                    <div class="element-desc">Deklarasi namespace untuk memudahkan penulisan kode tanpa prefix std::</div>
+                </div>
+
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-text-width"></i>
+                    </div>
+                    <div class="element-title">string</div>
+                    <div class="element-desc">Tipe data untuk menyimpan dan memanipulasi teks atau rangkaian karakter</div>
+                </div>
+
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="element-title">cout</div>
+                    <div class="element-desc">Objek untuk menampilkan output ke layar, bagian dari iostream library</div>
+                </div>
+
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="element-title">cin</div>
+                    <div class="element-desc">Objek untuk menerima input dari keyboard, bagian dari iostream library</div>
+                </div>
+
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <div class="element-title">getline()</div>
+                    <div class="element-desc">Fungsi untuk membaca input string dengan spasi, memungkinkan input teks yang lebih fleksibel</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string aktivitas;
+    string tempat;
+    
+    cout << "=================================\n";
+    cout << "      PROGRAM AKTIVITAS SAYA     \n";
+    cout << "=================================\n\n";
+    
+    cout << "Apa aktivitas anda? : ";
+    getline(cin, aktivitas);
+    
+    cout << "Di mana anda " << aktivitas << "? : ";
+    getline(cin, tempat);
+    
+    cout << "\nOutput:\n";
+    cout << "Saya sedang " << aktivitas << " di " << tempat << endl;
+    
+    return 0;
+}
+                </code></pre>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Portfolio Saya. Hak Cipta Dilindungi.</p>
+    </footer>
+</body>
+</html> 
