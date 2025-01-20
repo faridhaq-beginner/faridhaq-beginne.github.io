@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Aritmatika - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* ... style yang sama seperti sebelumnya ... */
+        
+        .operator-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .operator-symbol {
+            font-size: 2rem;
+            font-weight: bold;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #4a90e2, #63b3ed);
+            color: white;
+            border-radius: 50%;
+        }
+        
+        .operator-info {
+            flex: 1;
+        }
+        
+        .operator-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+        }
+        
+        .operator-desc {
+            color: #636e72;
+            font-size: 0.95rem;
+        }
+        
+        .output-demo {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Kembali ke Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="section-title">Operator Aritmatika</h1>
+        
+        <div class="code-explanation">
+            <h2 class="section-title">Penjelasan Program</h2>
+            
+            <div class="element-card">
+                <div class="element-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="element-desc">
+                    Program ini mendemonstrasikan penggunaan operator aritmatika dasar dalam C++
+                    dengan menggunakan dua bilangan: bil1 = 5 dan bil2 = 25
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3 class="section-title">Operator yang Digunakan</h3>
+                
+                <div class="operator-card">
+                    <div class="operator-symbol">+</div>
+                    <div class="operator-info">
+                        <div class="operator-title">Penjumlahan</div>
+                        <div class="operator-desc">Menambahkan dua nilai</div>
+                        <div class="output-demo">5 + 25 = 30</div>
+                    </div>
+                </div>
+
+                <div class="operator-card">
+                    <div class="operator-symbol">-</div>
+                    <div class="operator-info">
+                        <div class="operator-title">Pengurangan</div>
+                        <div class="operator-desc">Mengurangkan nilai kedua dari nilai pertama</div>
+                        <div class="output-demo">5 - 25 = -20</div>
+                    </div>
+                </div>
+
+                <div class="operator-card">
+                    <div class="operator-symbol">*</div>
+                    <div class="operator-info">
+                        <div class="operator-title">Perkalian</div>
+                        <div class="operator-desc">Mengalikan dua nilai</div>
+                        <div class="output-demo">5 * 25 = 125</div>
+                    </div>
+                </div>
+
+                <div class="operator-card">
+                    <div class="operator-symbol">/</div>
+                    <div class="operator-info">
+                        <div class="operator-title">Pembagian</div>
+                        <div class="operator-desc">Membagi nilai pertama dengan nilai kedua</div>
+                        <div class="output-demo">5 / 25 = 0</div>
+                    </div>
+                </div>
+
+                <div class="operator-card">
+                    <div class="operator-symbol">%</div>
+                    <div class="operator-info">
+                        <div class="operator-title">Sisa Bagi (Modulus)</div>
+                        <div class="operator-desc">Menghasilkan sisa pembagian nilai pertama dengan nilai kedua</div>
+                        <div class="output-demo">5 % 25 = 5</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code>
+#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Operator Aritmatika
+    // +  penjumlahan
+    // -  pengurangan
+    // *  perkalian
+    // /  pembagian
+    // %  sisa bagi
+    
+    // Operator penjumlahan
+    int bil1, bil2;
+    bil1 = 5;
+    bil2 = 25;
+    
+    cout << bil1 << " + " << bil2 << " = " << bil1 + bil2 << endl;
+    cout << bil1 << " - " << bil2 << " = " << bil1 - bil2 << endl;
+    cout << bil1 << " * " << bil2 << " = " << bil1 * bil2 << endl;
+    cout << bil1 << " / " << bil2 << " = " << bil1 / bil2 << endl;
+    cout << bil1 << " % " << bil2 << " = " << bil1 % bil2 << endl;
+    
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3 class="section-title">Output Program</h3>
+                <div class="code-block">
+                    <pre><code>
+5 + 25 = 30
+5 - 25 = -20
+5 * 25 = 125
+5 / 25 = 0
+5 % 25 = 5
+                    </code></pre>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3 class="section-title">Catatan Penting</h3>
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="element-desc">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Pembagian (/) antara bilangan bulat akan menghasilkan bilangan bulat</li>
+                            <li style="margin-bottom: 0.5rem;">• Hasil 5/25 = 0 karena pembagian bilangan bulat membuang bagian desimal</li>
+                            <li style="margin-bottom: 0.5rem;">• Operator modulus (%) hanya bisa digunakan untuk bilangan bulat</li>
+                            <li style="margin-bottom: 0.5rem;">• Urutan operasi mengikuti aturan matematika (PEMDAS)</li>
+                            <li>• Gunakan tanda kurung () untuk mengubah urutan operasi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Portfolio Saya. Hak Cipta Dilindungi.</p>
+    </footer>
+</body>
+</html> 
