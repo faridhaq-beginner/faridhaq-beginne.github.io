@@ -118,15 +118,7 @@
                         <i class="fas fa-file-import"></i>
                     </div>
                     <div class="element-title">#include &lt;iostream&gt;</div>
-                    <div class="element-desc">Header untuk input/output stream, memungkinkan program melakukan operasi input dan output standar</div>
-                </div>
-
-                <div class="element-card">
-                    <div class="element-icon">
-                        <i class="fas fa-font"></i>
-                    </div>
-                    <div class="element-title">#include &lt;string&gt;</div>
-                    <div class="element-desc">Header untuk menggunakan tipe data string, memungkinkan manipulasi teks dalam program</div>
+                    <div class="element-desc">Header wajib dalam C++ yang menyediakan fungsi input-output dasar seperti cin dan cout</div>
                 </div>
 
                 <div class="element-card">
@@ -134,15 +126,23 @@
                         <i class="fas fa-box-open"></i>
                     </div>
                     <div class="element-title">using namespace std</div>
-                    <div class="element-desc">Deklarasi namespace untuk memudahkan penulisan kode tanpa prefix std::</div>
+                    <div class="element-desc">Perintah untuk menggunakan namespace std sehingga tidak perlu menuliskan std:: di depan cout dan cin</div>
+                </div>
+
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="element-title">int main()</div>
+                    <div class="element-desc">Fungsi utama program yang akan dijalankan pertama kali saat program dieksekusi</div>
                 </div>
 
                 <div class="element-card">
                     <div class="element-icon">
                         <i class="fas fa-text-width"></i>
                     </div>
-                    <div class="element-title">string</div>
-                    <div class="element-desc">Tipe data untuk menyimpan dan memanipulasi teks atau rangkaian karakter</div>
+                    <div class="element-title">string aktivitas, tempat</div>
+                    <div class="element-desc">Deklarasi variabel bertipe string untuk menyimpan input aktivitas dan tempat dari pengguna</div>
                 </div>
 
                 <div class="element-card">
@@ -150,7 +150,7 @@
                         <i class="fas fa-arrow-right"></i>
                     </div>
                     <div class="element-title">cout</div>
-                    <div class="element-desc">Objek untuk menampilkan output ke layar, bagian dari iostream library</div>
+                    <div class="element-desc">Perintah untuk menampilkan output ke layar. Operator << digunakan untuk mengarahkan output</div>
                 </div>
 
                 <div class="element-card">
@@ -158,44 +158,63 @@
                         <i class="fas fa-arrow-left"></i>
                     </div>
                     <div class="element-title">cin</div>
-                    <div class="element-desc">Objek untuk menerima input dari keyboard, bagian dari iostream library</div>
+                    <div class="element-desc">Perintah untuk menerima input dari keyboard. Operator >> digunakan untuk menerima input</div>
                 </div>
 
                 <div class="element-card">
                     <div class="element-icon">
-                        <i class="fas fa-keyboard"></i>
+                        <i class="fas fa-terminal"></i>
                     </div>
-                    <div class="element-title">getline()</div>
-                    <div class="element-desc">Fungsi untuk membaca input string dengan spasi, memungkinkan input teks yang lebih fleksibel</div>
+                    <div class="element-title">\t</div>
+                    <div class="element-desc">Escape sequence untuk membuat tab (spasi horizontal) dalam output teks</div>
                 </div>
             </div>
 
             <div class="code-block">
                 <pre><code>
-#include &lt;iostream&gt;
-#include &lt;string&gt;
+#include&lt;iostream&gt;
 using namespace std;
-
+ 
 int main() {
     string aktivitas;
     string tempat;
     
-    cout << "=================================\n";
-    cout << "      PROGRAM AKTIVITAS SAYA     \n";
-    cout << "=================================\n\n";
+    cout<<"apa aktivitas anda \t: ";
+    cin>>aktivitas;
     
-    cout << "Apa aktivitas anda? : ";
-    getline(cin, aktivitas);
+    cout<<"di mana anda "<<aktivitas<<"\t: ";
+    cin>>tempat;
     
-    cout << "Di mana anda " << aktivitas << "? : ";
-    getline(cin, tempat);
-    
-    cout << "\nOutput:\n";
-    cout << "Saya sedang " << aktivitas << " di " << tempat << endl;
-    
-    return 0;
+    cout<<"Saya sedang "<<aktivitas<<" di "<<tempat;
 }
                 </code></pre>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3 class="section-title">Contoh Output Program</h3>
+                <div class="code-block" style="background: linear-gradient(145deg, #2d2d2d, #1a1a1a);">
+                    <pre><code>
+apa aktivitas anda     : belajar
+di mana anda belajar   : perpustakaan
+Saya sedang belajar di perpustakaan
+                    </code></pre>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3 class="section-title">Catatan Penting</h3>
+                <div class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="element-desc">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Program ini menggunakan cin yang hanya bisa menerima input tanpa spasi</li>
+                            <li style="margin-bottom: 0.5rem;">• Jika ingin memasukkan input dengan spasi, sebaiknya menggunakan getline()</li>
+                            <li>• Escape sequence \t digunakan untuk membuat tampilan output lebih rapi dengan tab</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
