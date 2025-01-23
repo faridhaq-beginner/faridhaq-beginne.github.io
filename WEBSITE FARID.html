@@ -206,6 +206,242 @@
                 justify-content: center;
             }
         }
+
+        /* Style untuk tabel modern */
+        #dataTable {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        #dataTable thead {
+            background: linear-gradient(145deg, #4a90e2, #63b3ed);
+            color: white;
+        }
+
+        #dataTable th {
+            padding: 1.2rem 1rem;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border: none;
+        }
+
+        #dataTable td {
+            padding: 1rem;
+            text-align: center;
+            border: none;
+            border-bottom: 1px solid #e1e8ed;
+            font-size: 0.9rem;
+            color: #2d3436;
+        }
+
+        #dataTable tbody tr:hover {
+            background: #f8f9fa;
+            transition: background 0.3s ease;
+        }
+
+        #dataTable tfoot {
+            background: #f0f7ff;
+            font-weight: 600;
+        }
+
+        #dataTable tfoot td {
+            border-bottom: none;
+        }
+
+        #dataTable tfoot tr:first-child {
+            border-top: 2px solid #4a90e2;
+        }
+
+        /* Animasi untuk baris tabel */
+        #dataTable tbody tr {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        #dataTable tbody tr:nth-child(1) { animation-delay: 0.1s; }
+        #dataTable tbody tr:nth-child(2) { animation-delay: 0.2s; }
+        #dataTable tbody tr:nth-child(3) { animation-delay: 0.3s; }
+        #dataTable tbody tr:nth-child(4) { animation-delay: 0.4s; }
+        #dataTable tbody tr:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Responsif untuk tabel */
+        @media (max-width: 768px) {
+            #dataTable {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            #dataTable th, 
+            #dataTable td {
+                padding: 0.8rem 0.6rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Style untuk highlight nilai penting */
+        #dataTable td[id^="sum"],
+        #dataTable td[id^="mean"] {
+            color: #4a90e2;
+            font-weight: 600;
+        }
+
+        /* Hover effect untuk sel tabel */
+        #dataTable tbody td:hover {
+            background: #e3f2fd;
+            transition: background 0.3s ease;
+        }
+
+        /* Style untuk header kolom */
+        #dataTable th {
+            position: relative;
+            cursor: help;
+        }
+
+        #dataTable th::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        #dataTable th:hover::after {
+            width: 80%;
+        }
+
+        /* Style untuk tooltip pada header */
+        #dataTable th:hover::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            visibility: visible;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #dataTable th:hover::before {
+            opacity: 1;
+        }
+
+        /* Style untuk hasil analisis */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4a90e2, #63b3ed);
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-card h4 {
+            color: #2d3436;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .result-card h4 i {
+            color: #4a90e2;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .result-item:hover {
+            background: #e3f2fd;
+        }
+
+        .result-label {
+            font-weight: 500;
+            color: #2d3436;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .result-value {
+            font-weight: 600;
+            color: #4a90e2;
+            font-size: 1.1rem;
+            padding: 0.3rem 0.8rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animasi untuk hasil */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .result-item {
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .result-item:nth-child(1) { animation-delay: 0.1s; }
+        .result-item:nth-child(2) { animation-delay: 0.2s; }
+        .result-item:nth-child(3) { animation-delay: 0.3s; }
     </style>
 </head>
 <body>
@@ -337,6 +573,31 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Program Analisis Data Bivariat dari index.html -->
+                <div class="program-card">
+                    <div class="program-content">
+                        <i class="fas fa-chart-line fa-3x"></i>
+                        <h3>Analisis Data Bivariat</h3>
+                        <p>Program untuk menganalisis hubungan antara dua variabel dengan perhitungan statistik lengkap</p>
+                        <div class="program-tech">
+                            <span>JavaScript</span>
+                            <span>Excel</span>
+                            <span>Statistics</span>
+                        </div>
+                        <div class="program-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Perhitungan Korelasi</li>
+                                <li><i class="fas fa-check"></i> Import/Export Excel</li>
+                                <li><i class="fas fa-check"></i> Analisis Lengkap</li>
+                            </ul>
+                        </div>
+                        <a href="#analisis-bivariat" class="program-link">
+                            <span>Lihat Program</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -406,11 +667,95 @@
                     </div>
 
                     <div id="results" class="results-container" style="display: none;">
-                        <!-- ... kode hasil perhitungan ... -->
+                        <h3 class="section-title">Hasil Analisis</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <h4><i class="fas fa-calculator"></i> Perhitungan Dasar</h4>
+                                <div class="result-item">
+                                    <span class="result-label">
+                                        <i class="fas fa-square-root-alt"></i>
+                                        Σ(X-X̄)²
+                                    </span>
+                                    <span class="result-value" id="sumXDev2">0</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">
+                                        <i class="fas fa-square-root-alt"></i>
+                                        Σ(Y-Ȳ)²
+                                    </span>
+                                    <span class="result-value" id="sumYDev2">0</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">
+                                        <i class="fas fa-times"></i>
+                                        Σ(X-X̄)(Y-Ȳ)
+                                    </span>
+                                    <span class="result-value" id="sumXYDev">0</span>
+                                </div>
+                            </div>
+
+                            <div class="result-card">
+                                <h4><i class="fas fa-chart-line"></i> Hasil Akhir</h4>
+                                <div class="result-item">
+                                    <span class="result-label">
+                                        <i class="fas fa-link"></i>
+                                        Koefisien Korelasi (r)
+                                    </span>
+                                    <span class="result-value" id="correlation">0</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">
+                                        <i class="fas fa-percentage"></i>
+                                        Koefisien Determinasi (r²)
+                                    </span>
+                                    <span class="result-value" id="determination">0</span>
+                                </div>
+                                <div class="result-item interpretation">
+                                    <span class="result-label">
+                                        <i class="fas fa-info-circle"></i>
+                                        Interpretasi
+                                    </span>
+                                    <span class="result-value" id="interpretation">-</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="tableContainer" style="display: none;">
-                        <!-- ... kode tabel ... -->
+                        <h3>Tabel Data dan Perhitungan</h3>
+                        <table id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>X</th>
+                                    <th>Y</th>
+                                    <th>X - X̄</th>
+                                    <th>Y - Ȳ</th>
+                                    <th>(X - X̄)²</th>
+                                    <th>(Y - Ȳ)²</th>
+                                    <th>(X - X̄)(Y - Ȳ)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody"></tbody>
+                            <tfoot id="tableFoot">
+                                <tr>
+                                    <td>Jumlah (Σ)</td>
+                                    <td id="sumX">0</td>
+                                    <td id="sumY">0</td>
+                                    <td id="sumXDev">0</td>
+                                    <td id="sumYDev">0</td>
+                                    <td id="sumXDev2Table">0</td>
+                                    <td id="sumYDev2Table">0</td>
+                                    <td id="sumXYDevTable">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Rata-rata</td>
+                                    <td id="meanXTable">0</td>
+                                    <td id="meanYTable">0</td>
+                                    <td colspan="5"></td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -532,7 +877,141 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script>
-        // ... kode JavaScript dari mtk.html ...
+        function calculateBivariate() {
+            const xData = document.getElementById('dataX').value.split(',').map(x => parseFloat(x.trim()));
+            const yData = document.getElementById('dataY').value.split(',').map(y => parseFloat(y.trim()));
+
+            if (xData.length !== yData.length) {
+                alert('Jumlah data X dan Y harus sama!');
+                return;
+            }
+
+            const n = xData.length;
+            
+            // Hitung mean
+            const meanX = xData.reduce((a, b) => a + b, 0) / n;
+            const meanY = yData.reduce((a, b) => a + b, 0) / n;
+
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+            
+            let sumX = 0, sumY = 0, sumXDev = 0, sumYDev = 0;
+            let sumXDev2 = 0, sumYDev2 = 0, sumXYDev = 0;
+            
+            for (let i = 0; i < n; i++) {
+                sumX += xData[i];
+                sumY += yData[i];
+                
+                const xDev = xData[i] - meanX;
+                const yDev = yData[i] - meanY;
+                const xDev2 = xDev * xDev;
+                const yDev2 = yDev * yDev;
+                const xyDev = xDev * yDev;
+
+                sumXDev += xDev;
+                sumYDev += yDev;
+                sumXDev2 += xDev2;
+                sumYDev2 += yDev2;
+                sumXYDev += xyDev;
+
+                const row = tableBody.insertRow();
+                row.insertCell(0).textContent = i + 1;
+                row.insertCell(1).textContent = xData[i].toFixed(2);
+                row.insertCell(2).textContent = yData[i].toFixed(2);
+                row.insertCell(3).textContent = xDev.toFixed(2);
+                row.insertCell(4).textContent = yDev.toFixed(2);
+                row.insertCell(5).textContent = xDev2.toFixed(4);
+                row.insertCell(6).textContent = yDev2.toFixed(4);
+                row.insertCell(7).textContent = xyDev.toFixed(4);
+            }
+
+            // Update jumlah dan rata-rata di tabel
+            document.getElementById('sumX').textContent = sumX.toFixed(2);
+            document.getElementById('sumY').textContent = sumY.toFixed(2);
+            document.getElementById('sumXDev').textContent = sumXDev.toFixed(2);
+            document.getElementById('sumYDev').textContent = sumYDev.toFixed(2);
+            document.getElementById('sumXDev2Table').textContent = sumXDev2.toFixed(4);
+            document.getElementById('sumYDev2Table').textContent = sumYDev2.toFixed(4);
+            document.getElementById('sumXYDevTable').textContent = sumXYDev.toFixed(4);
+            
+            document.getElementById('meanXTable').textContent = meanX.toFixed(2);
+            document.getElementById('meanYTable').textContent = meanY.toFixed(2);
+
+            // Update hasil perhitungan
+            document.getElementById('sumXDev2').textContent = sumXDev2.toFixed(4);
+            document.getElementById('sumYDev2').textContent = sumYDev2.toFixed(4);
+            document.getElementById('sumXYDev').textContent = sumXYDev.toFixed(4);
+
+            // Hitung korelasi
+            const r = sumXYDev / Math.sqrt(sumXDev2 * sumYDev2);
+            document.getElementById('correlation').textContent = r.toFixed(4);
+            document.getElementById('determination').textContent = (r * r).toFixed(4);
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('tableContainer').style.display = 'block';
+        }
+
+        function importExcel() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.xlsx,.xls';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, {type: 'array'});
+                    const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                    const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+                    
+                    if (jsonData.length > 0) {
+                        const xData = [];
+                        const yData = [];
+                        jsonData.forEach(row => {
+                            xData.push(row.X);
+                            yData.push(row.Y);
+                        });
+                        document.getElementById('dataX').value = xData.join(', ');
+                        document.getElementById('dataY').value = yData.join(', ');
+                        calculateBivariate();
+                    }
+                };
+                reader.readAsArrayBuffer(file);
+            };
+            input.click();
+        }
+
+        function exportExcel() {
+            const xData = document.getElementById('dataX').value.split(',').map(x => parseFloat(x.trim()));
+            const yData = document.getElementById('dataY').value.split(',').map(y => parseFloat(y.trim()));
+            
+            const meanX = xData.reduce((a, b) => a + b, 0) / xData.length;
+            const meanY = yData.reduce((a, b) => a + b, 0) / yData.length;
+            
+            const data = xData.map((x, i) => ({
+                'NO.': i + 1,
+                'x': x,
+                'y': yData[i],
+                'x-x\'': (x - meanX).toFixed(2),
+                'y-y\'': (yData[i] - meanY).toFixed(2),
+                '(x-x\')^2': ((x - meanX) * (x - meanX)).toFixed(4),
+                '(y-y\')^2': ((yData[i] - meanY) * (yData[i] - meanY)).toFixed(4),
+                '(x-x\')*(y-y\')': ((x - meanX) * (yData[i] - meanY)).toFixed(4)
+            }));
+
+            const ws = XLSX.utils.json_to_sheet(data);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Analisis Bivariat");
+            XLSX.writeFile(wb, "analisis_bivariat.xlsx");
+        }
+
+        function showGuide() {
+            document.getElementById('guideModal').style.display = 'block';
+        }
+
+        function closeGuide() {
+            document.getElementById('guideModal').style.display = 'none';
+        }
     </script>
 </body>
 </html> 
