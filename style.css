@@ -1225,3 +1225,40 @@ document.addEventListener('DOMContentLoaded', function() {
         margin: 30% auto;
     }
 }
+
+.program-features {
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.program-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.program-features li {
+    margin: 0.5rem 0;
+    color: #636e72;
+    font-size: 0.9rem;
+}
+
+.program-features i {
+    color: #4a90e2;
+    margin-right: 0.5rem;
+}
+
+.program-tech {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.program-tech span {
+    background: #f0f7ff;
+    color: #4a90e2;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}

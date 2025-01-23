@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Saya</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .explanation-section {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+        }
+
+        .explanation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .explanation-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .explanation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-header i {
+            font-size: 1.5rem;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card-content ul li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .card-content ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-content code {
+            background: #f1f3f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #e03131;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .card-content ul ul {
+            margin-top: 0.5rem;
+            margin-left: 1rem;
+            border-left: 2px solid #e9ecef;
+            padding-left: 1rem;
+        }
+
+        .explanation-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .explanation-section h2 i {
+            font-size: 2rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .explanation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #analisis-bivariat {
+            background: var(--section-bg);
+            padding: 4rem 2rem;
+        }
+
+        .calculator-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .guide-section {
+            background: #f0f7ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .guide-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .data-input {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+            font-weight: 600;
+        }
+
+        .input-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 1px solid #e1e8ed;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 1rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <button class="menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul>
+                <li><a href="#beranda"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#tentang"><i class="fas fa-user"></i> Tentang Saya</a></li>
+                <li><a href="#portfolio"><i class="fas fa-code"></i> Program</a></li>
+                <li><a href="#analisis-bivariat"><i class="fas fa-chart-line"></i> Analisis Bivariat</a></li>
+                <li><a href="#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="beranda" class="hero">
+            <div class="hero-content">
+                <img src="FotoProfil.jpg" alt="Foto Profil" class="profile-img">
+                <h1>Selamat Datang di Portfolio Saya</h1>
+                <p class="description">Halaman inilah yang akan saya gunakan untuk mengumpulkan semua tugas pemrograman dari mapel Informatika</p>
+                <p class="tagline">Beginner | Student</p>
+            </div>
+        </section>
+
+        <section id="tentang">
+            <h2>Tentang Saya</h2>
+            <div class="about-content">
+                <p>Perkenalkan saya adalah Muh. Farid Haq Al B. seorang siswa biasa dari SMA Negeri 5 Makassar yang memiliki impian jadi orang sukses dan masuk surga.</p>
+                
+                <div class="skills">
+                    <h3>Prinsip Hidup</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-pray fa-2x"></i><br>
+                            <span class="skill-title">Berdoa</span>
+                            <p class="skill-desc">Memulai segala sesuatu dengan doa dan tawakal</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-hand-fist fa-2x"></i><br>
+                            <span class="skill-title">Berusaha</span>
+                            <p class="skill-desc">Pantang menyerah dalam menggapai cita-cita</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-book-open fa-2x"></i><br>
+                            <span class="skill-title">Belajar</span>
+                            <p class="skill-desc">Terus menimba ilmu sepanjang hayat</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-bed fa-2x"></i><br>
+                            <span class="skill-title">Beristirahat</span>
+                            <p class="skill-desc">Menjaga keseimbangan dengan istirahat yang cukup</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2>Program</h2>
+            <div class="portfolio-grid">
+                <!-- Tugas 1: Data Diri & Tipe Data -->
+                <div class="program-card">
+                    <div class="program-content">
+                        <i class="fas fa-user-circle fa-3x"></i>
+                        <h3>Data Diri & Tipe Data</h3>
+                        <p>Program pengenalan berbagai tipe data dalam pemrograman melalui contoh data diri</p>
+                        <div class="program-tech">
+                            <span>C++</span>
+                            <span>Basic</span>
+                        </div>
+                        <a href="data_types.html" class="program-link">
+                            <span>Lihat Program</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tugas 2: Kasir Toko Sembako -->
+                <div class="program-card">
+                    <div class="program-content">
+                        <i class="fas fa-cash-register fa-3x"></i>
+                        <h3>Kasir Toko Sembako</h3>
+                        <p>Program kasir sederhana untuk menghitung total belanja dengan fitur diskon</p>
+                        <div class="program-tech">
+                            <span>C++</span>
+                            <span>Basic</span>
+                        </div>
+                        <a href="kasir_sembako.html" class="program-link">
+                            <span>Lihat Program</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tugas 3: Program Aktivitas -->
+                <div class="program-card">
+                    <div class="program-content">
+                        <i class="fas fa-tasks fa-3x"></i>
+                        <h3>Program Aktivitas</h3>
+                        <p>Program sederhana untuk mencatat aktivitas dan lokasi menggunakan input/output dasar</p>
+                        <div class="program-tech">
+                            <span>C++</span>
+                            <span>Basic</span>
+                        </div>
+                        <a href="aktivitas.html" class="program-link">
+                            <span>Lihat Program</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tugas 4: Operator Aritmatika -->
+                <div class="program-card">
+                    <div class="program-content">
+                        <i class="fas fa-calculator fa-3x"></i>
+                        <h3>Operator Aritmatika</h3>
+                        <p>Program demonstrasi penggunaan berbagai operator aritmatika dalam C++</p>
+                        <div class="program-tech">
+                            <span>C++</span>
+                            <span>Basic</span>
+                        </div>
+                        <a href="operator.html" class="program-link">
+                            <span>Lihat Program</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak">
+            <h2>Kontak</h2>
+            <div class="contact-info">
+                <p>
+                    <a href="mailto:muh.farid6596@sma.belajar.id" style="text-decoration: none; color: inherit;">
+                        <i class="fas fa-envelope"></i> muh.farid6596@sma.belajar.id
+                    </a>
+                </p>
+                <p>
+                    <a href="https://www.instagram.com/faridhaqal" target="_blank" style="text-decoration: none; color: inherit;">
+                        <i class="fab fa-instagram"></i> @faridhaqal
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <section id="analisis-bivariat" class="section">
+            <div class="container">
+                <h2 class="section-title">Analisis Data Bivariat</h2>
+                
+                <div class="calculator-container">
+                    <div class="guide-section">
+                        <h3>
+                            <i class="fas fa-info-circle"></i> 
+                            Panduan Penggunaan
+                        </h3>
+                        <p>Untuk memulai, Anda dapat:</p>
+                        <div class="guide-buttons">
+                            <a href="template_bivariat.xlsx" download class="btn btn-secondary">
+                                <i class="fas fa-download"></i>
+                                Download Template Excel
+                            </a>
+                            <div class="btn btn-secondary" onclick="showGuide()">
+                                <i class="fas fa-book"></i>
+                                Lihat Panduan Lengkap
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-input">
+                        <div class="input-group">
+                            <label for="dataX">Data X (pisahkan dengan koma)</label>
+                            <textarea id="dataX" rows="4" placeholder="Contoh: 1, 2, 3, 4, 5"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="dataY">Data Y (pisahkan dengan koma)</label>
+                            <textarea id="dataY" rows="4" placeholder="Contoh: 2, 4, 6, 8, 10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="calculateBivariate()">
+                            <i class="fas fa-calculator"></i>
+                            Hitung
+                        </button>
+                        <button class="btn btn-secondary" onclick="importExcel()">
+                            <i class="fas fa-file-excel"></i>
+                            Import Excel
+                        </button>
+                        <button class="btn btn-secondary" onclick="exportExcel()">
+                            <i class="fas fa-download"></i>
+                            Export Excel
+                        </button>
+                    </div>
+
+                    <div id="results" class="results-container" style="display: none;">
+                        <!-- ... kode hasil perhitungan ... -->
+                    </div>
+
+                    <div id="tableContainer" style="display: none;">
+                        <!-- ... kode tabel ... -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Portfolio Saya. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <div id="deviceWarning" class="modal">
+        <div class="modal-content">
+            <h3>⚠️ Peringatan Tampilan</h3>
+            <p>Untuk pengalaman terbaik dalam melihat portfolio ini:</p>
+            <ul>
+                <li>💻 Gunakan laptop/tablet untuk tampilan optimal</li>
+                <li>📱 Jika menggunakan HP, putar layar ke posisi horizontal</li>
+                <li>🔄 Pastikan auto-rotate pada HP Anda aktif</li>
+            </ul>
+            <button onclick="closeModal()">Saya Mengerti</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav ul li a');
+            const sections = document.querySelectorAll('section');
+            
+            // Set active class based on current section
+            function setActiveSection() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - sectionHeight/3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Set initial active state
+            setActiveSection();
+
+            // Update active state on scroll
+            window.addEventListener('scroll', setActiveSection);
+
+            // Update active state on click
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav ul');
+
+            // Toggle menu saat tombol diklik
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+
+            // Tutup menu saat link diklik
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                });
+            });
+
+            // Tutup menu saat scroll
+            window.addEventListener('scroll', () => {
+                nav.classList.remove('active');
+            });
+
+            // Fungsi untuk mengecek orientasi dan device
+            function checkDeviceAndOrientation() {
+                const modal = document.getElementById('deviceWarning');
+                
+                // Cek apakah menggunakan mobile
+                if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    if(window.innerHeight > window.innerWidth) {
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden'; // Mencegah scroll
+                    } else {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = ''; // Mengembalikan scroll
+                    }
+                }
+            }
+
+            // Fungsi untuk menutup modal
+            window.closeModal = function() {
+                document.getElementById('deviceWarning').style.display = 'none';
+                document.body.style.overflow = ''; // Mengembalikan scroll
+            }
+
+            // Jalankan pengecekan saat halaman dimuat
+            checkDeviceAndOrientation();
+
+            // Jalankan pengecekan saat orientasi berubah
+            window.addEventListener('orientationchange', function() {
+                setTimeout(checkDeviceAndOrientation, 100); // Delay sedikit untuk memastikan orientasi sudah berubah
+            });
+
+            // Jalankan pengecekan saat ukuran window berubah
+            window.addEventListener('resize', function() {
+                checkDeviceAndOrientation();
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        // ... kode JavaScript dari mtk.html ...
+    </script>
+</body>
+</html> 
